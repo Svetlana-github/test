@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<package >
+  <metadata>
+    <id>SPA</id>
+    <version>1.0.0</version>
+    <authors>checkmarx</authors>
+    <owners>Lux Team</owners>
+    <licenseUrl>http://LICENSE_URL_HERE_OR_DELETE_THIS_LINE</licenseUrl>
+    <projectUrl>http://PROJECT_URL_HERE_OR_DELETE_THIS_LINE</projectUrl>
+    <iconUrl>http://ICON_URL_HERE_OR_DELETE_THIS_LINE</iconUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>SPA</description>
+    <releaseNotes>React and Mobx</releaseNotes>
+    <copyright>Copyright 2017</copyright>
+  </metadata> 
+  <files>
+	<file src="dist\**\*" target="Content\SPA" />      
+  </files>
+</package> 
