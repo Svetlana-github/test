@@ -21,6 +21,7 @@ steps:
   displayName: 'Application security testing'
   inputs:
     projectName: TTTTTest
+    scaTeam: '/Champions/Back2USSR' 
     enableSastScan: false
     fullScansScheduled: false
     enableDependencyScan: true
