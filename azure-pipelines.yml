@@ -9,14 +9,7 @@ trigger:
 pool:
   vmImage: ubuntu-latest
 
-steps:
-- script: echo Hello, world!
-  displayName: 'Run a one-line script'
-
-- script: |
-    echo Add other tasks to build, test, and deploy your project.
-    echo See https://aka.ms/yaml
-  displayName: 'Run a multi-line script'
+parameters:
   scaProjectName: '$(Build.Repository.Name)'
   scaTeamPath: '/Champions/Back2USSR'
   scaServiceConnection: 'checkmarx_sca_technologyincubation'
@@ -27,6 +20,17 @@ steps:
   dependencyFolderExclusion: 'cvs,.svn,.hg,.git,.bzr,bin,obj,backup,.idea,node_modules'
   continueOnError: 'false'
   scaEnablePolicyViolations: true
+  
+steps:
+- script: echo Hello, world!
+  displayName: 'Run a one-line script'
+
+- script: |
+    echo Add other tasks to build, test, and deploy your project.
+    echo See https://aka.ms/yaml
+  displayName: 'Run a multi-line script'
+  
+
 - task: checkmarx.cxsast.cx-scan-task.Application security testing@2022
   displayName: 'Application security testing'
   inputs:
