@@ -17,13 +17,29 @@ steps:
     echo Add other tasks to build, test, and deploy your project.
     echo See https://aka.ms/yaml
   displayName: 'Run a multi-line script'
+  scaProjectName: '$(Build.Repository.Name)'
+  scaTeamPath: '/Champions/Back2USSR'
+  scaServiceConnection: 'checkmarx_sca_technologyincubation'
+  scaThreshold: 'false' #true or false
+  scaHigh: '19' #Number or High before breaking build
+  scaMedium: '10'
+  scaLow: '15'
+  dependencyFolderExclusion: 'cvs,.svn,.hg,.git,.bzr,bin,obj,backup,.idea,node_modules'
+  continueOnError: 'false'
+  scaEnablePolicyViolations: true
 - task: checkmarx.cxsast.cx-scan-task.Application security testing@2022
   displayName: 'Application security testing'
   inputs:
-    projectName: TTTTTest
-    scaTeam: '/Champions/Back2USSR' 
+    projectName: ${{parameters.scaProjectName}}
+    dependencyServerURL: 'https://api-sca.checkmarx.net'
+    syncMode: true
+    enableProxy: false
     enableSastScan: false
-    fullScansScheduled: false
     enableDependencyScan: true
-    dependencyServerURL: https://api-sca.checkmarx.net
-    scaEnablePolicyViolations: true
+    dependencyFolderExclusion: ${{parameters.dependencyFolderExclusion}}
+    scaVulnerabilityThreshold: ${{parameters.scaThreshold}}
+    scaHigh: ${{parameters.scaHigh}}
+    scaMedium: ${{parameters.scaMedium}}
+    scaLow: ${{parameters.scaLow}}
+    scaTeam: ${{parameters.scaTeamPath}}
+    continueOnError: ${{parameters.continueOnError}}
