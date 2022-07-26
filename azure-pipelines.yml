@@ -10,9 +10,7 @@ pool:
   vmImage: ubuntu-latest
 
 parameters:
-  scaProjectName: '$(Build.Repository.Name)'
   scaTeamPath: '/Champions/Back2USSR'
-  scaServiceConnection: 'checkmarx_sca_technologyincubation'
   scaThreshold: 'false' #true or false
   scaHigh: '19' #Number or High before breaking build
   scaMedium: '10'
@@ -20,7 +18,7 @@ parameters:
   dependencyFolderExclusion: 'cvs,.svn,.hg,.git,.bzr,bin,obj,backup,.idea,node_modules'
   continueOnError: 'false'
   scaEnablePolicyViolations: true
-  
+
 steps:
 - script: echo Hello, world!
   displayName: 'Run a one-line script'
@@ -34,8 +32,8 @@ steps:
 - task: checkmarx.cxsast.cx-scan-task.Application security testing@2022
   displayName: 'Application security testing'
   inputs:
-    projectName: ${{parameters.scaProjectName}}
-    dependencyServerURL: 'https://api-sca.checkmarx.net'
+    projectName: fgsdfdfgsdg
+    serviceConnection: https://api-sca.checkmarx.net
     syncMode: true
     enableProxy: false
     enableSastScan: false
