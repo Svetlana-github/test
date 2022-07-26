@@ -20,8 +20,9 @@ steps:
 - task: checkmarx.cxsast.cx-scan-task.Application security testing@2022
   displayName: 'Application security testing'
   inputs:
-    projectName: test
+    projectName: TTTTTest
+    enableSastScan: false
     fullScansScheduled: false
     enableDependencyScan: true
-    dependencyServerURL: service
+    dependencyServerURL: https://api-sca.checkmarx.net
     scaEnablePolicyViolations: true
